@@ -1,0 +1,13 @@
+http://localhost:8080/users/
+
+http://localhost:8080/oauth/token?username=Einstein&password=password&grant_type=password
+
+
+
+
+
+
+
+http://localhost:8080/oauth/token?grant_type=refresh_token&refresh_token=5eeb715b-a705-48b1-9036-e3bd973610a4
+
+http://localhost:8080/users/?access_token=f27eca3d-dd60-4d05-be05-e15876c2222e
