@@ -1,0 +1,1 @@
+Creating spring-boot enabled OAuth2 JPA project which will use H2 database.
