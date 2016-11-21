@@ -20,7 +20,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 /**
- * @author Moritz Schulze
+ * 
  */
 @Configuration
 @EnableAuthorizationServer
@@ -48,7 +48,7 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
  
         //clients.jdbc(dataSource)
     	clients.inMemory()
-            .withClient("my-trusted-client")
+            .withClient("my-client")
             .authorizedGrantTypes("password", "refresh_token", "implicit")
             .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
             .scopes("read", "write", "trust")

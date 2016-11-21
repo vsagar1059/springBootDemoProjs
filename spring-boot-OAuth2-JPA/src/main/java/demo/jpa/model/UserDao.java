@@ -12,22 +12,12 @@ import org.springframework.stereotype.Repository;
 
 /**
  * This class is used to access data for the User entity.
- * Repository annotation allows the component scanning support to find and 
- * configure the DAO wihtout any XML configuration and also provide the Spring 
- * exceptiom translation.
- * Since we've setup setPackagesToScan and transaction manager on
- * DatabaseConfig, any bean method annotated with Transactional will cause
- * Spring to magically call begin() and commit() at the start/end of the
- * method. If exception occurs it will also call rollback().
  */
 @Repository
 @Transactional
 public class UserDao {
   
-  // ------------------------
-  // PUBLIC METHODS
-  // ------------------------
-  
+ 
   /**
    * Save the user in the database.
    */
@@ -48,7 +38,7 @@ public class UserDao {
   }
   
   /**
-   * Return all the users stored in the database.
+   * Return all the users from H2 database.
    */
   @PreAuthorize("hasRole('ROLE_ADMIN')")
   @SuppressWarnings("unchecked")
@@ -57,7 +47,7 @@ public class UserDao {
   }
   
   /**
-   * Return the user having the passed email.
+   * Return the user based on email.
    */
   @PostAuthorize("hasRole('ROLE_ADMIN')")
 		  
@@ -69,7 +59,7 @@ public class UserDao {
   }
 
   /**
-   * Return the user having the passed id.
+   * Return the user based on id.
    */
   @PostAuthorize("hasRole('ROLE_ADMIN')")
   public User getById(long id) {
@@ -77,7 +67,7 @@ public class UserDao {
   }
 
   /**
-   * Update the passed user in the database.
+   * Update the user in the H2 database.
    */
   public void update(User user) {
     entityManager.merge(user);
@@ -91,13 +81,9 @@ public class UserDao {
 		        .getSingleResult();
   }
 
-  // ------------------------
-  // PRIVATE FIELDS
-  // ------------------------
-  
   // An EntityManager will be automatically injected from entityManagerFactory
   // setup on DatabaseConfig class.
   @PersistenceContext
   private EntityManager entityManager;
   
-} // class UserDao
+} 
