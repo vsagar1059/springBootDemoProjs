@@ -1,0 +1,1 @@
+Creating spring-boot enabled JPA project which will use H2 database.
